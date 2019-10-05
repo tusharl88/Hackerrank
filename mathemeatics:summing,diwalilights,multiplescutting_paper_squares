@@ -1,0 +1,68 @@
+Q1.https://www.hackerrank.com/challenges/summing-the-n-series/problem
+
+t = int(input())
+m = 1000000007
+
+for i in range(t):
+  x = int(input())
+  x = x*x
+  x = x%m
+  print(x)
+
+Q2.https://www.hackerrank.com/challenges/diwali-lights/problem
+t=int(input())
+for i in range(t):
+    n=int(input())
+    print((2**n-1)%100000)
+
+Q3.https://www.hackerrank.com/challenges/special-multiple/problem
+
+#clever way to do this problem effeciently is by checking if [9,90,99,900....n]%N==0.
+#so,how to generate [9,90,99,900....n] series?
+#Basically numbers from [1, 2, 3 , 4.....n] are [1,10,11,100......n] in Binary form, so observe the pattern and you will realize that if you replace '1' by '9' you get a number series [9,90,99,900.....n]
+
+seriesof9and0=[]
+
+for i in range(1,10001):  
+    b=int(bin(i).replace('0b',''))
+    seriesof9and0.append(b*9)
+
+t=int(input())
+for j in range(t):  
+    n=int(input())
+    for k in seriesof9and0:
+        if k %n==0:
+            print(k)
+            break
+    
+    
+#81 will give 999999999 and if we take range 1 to 501 then 999999999 will not be produced. Similarly multiple of 469 is 9900900009 is also not produced if range is 1 to 501. Therefore we have taken range from 1 to 10001 to cover  all test cases.
+    
+Q4:https://www.hackerrank.com/challenges/p1-paper-cutting/problem
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the solve function below.
+def solve(n, m):
+    return n*m-1
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    nm = input().split()
+
+    n = int(nm[0])
+
+    m = int(nm[1])
+
+    result = solve(n, m)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
